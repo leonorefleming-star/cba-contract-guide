@@ -102,7 +102,10 @@ body {
   border-radius: var(--radius-sm);
   padding: 10px 14px; font-size: 0.82rem;
   max-width: 540px; margin-bottom: 22px;
+  text-decoration: none; color: inherit;
+  cursor: pointer; transition: background 0.15s, border-color 0.15s;
 }
+.moa-chip:hover { background: #fff5f7; border-color: #e8a0b0; }
 .moa-chip strong { color: var(--crimson); }
 .search-wrap { position: relative; max-width: 420px; }
 .search-ico { position: absolute; left: 13px; top: 50%; transform: translateY(-50%); color: var(--text-light); font-size: 0.85rem; pointer-events: none; }
@@ -682,10 +685,10 @@ a[href^="mailto:"]:hover { text-decoration: underline; }
   <div class="home-wrap">
     <div class="home-head">
       <h1>Your contract,<br><em>made clear.</em></h1>
-      <div class="moa-chip">
+      <a class="moa-chip" href="#new-moa" onclick="event.preventDefault(); goToSection('new-moa')">
         <span style="color:var(--crimson);flex-shrink:0">📢</span>
         <span><strong>New MOA pending ratification — May 2026.</strong> A draft agreement extending your contract through May 2030 is currently before the membership.</span>
-      </div>
+      </a>
       <p>Search a topic, idea, or browse the situations below to learn about your rights and protections as an AAUP-Utica member.</p>
       <div class="search-wrap">
         <span class="search-ico">🔍</span>
@@ -2430,6 +2433,33 @@ function showView(name) {
   });
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+function goToSection(id) {
+  showView('explore');
+  setTimeout(function() {
+    var el = document.getElementById(id);
+    if (el) {
+      var hh = (document.querySelector('.site-header') || {offsetHeight: 60}).offsetHeight;
+      window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - hh - 10, behavior: 'smooth' });
+    }
+  }, 60);
+}
+
+// Handle hash-based deep links on page load
+(function() {
+  var exploreSections = ['how-it-works', 'new-moa', 'key-rights', 'documents'];
+  var hash = window.location.hash.replace('#', '');
+  if (exploreSections.indexOf(hash) !== -1) {
+    showView('explore');
+    setTimeout(function() {
+      var el = document.getElementById(hash);
+      if (el) {
+        var hh = (document.querySelector('.site-header') || {offsetHeight: 60}).offsetHeight;
+        window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - hh - 10 });
+      }
+    }, 100);
+  }
+})();
 
 function toggle(btn) {
   const body = btn.nextElementSibling;
