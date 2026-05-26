@@ -258,7 +258,7 @@ a[href^="mailto:"]:hover { text-decoration: underline; }
 /* === WHAT'S NEW 2026 — dark section === */
 #new-moa { background: #111827; padding: 90px 24px 100px; overflow: hidden; }
 .moa-year-deco {
-  position: absolute; bottom: -50px; right: -20px; z-index: 0;
+  position: absolute; top: -20px; right: -20px; z-index: 0;
   font-size: clamp(140px, 28vw, 280px); font-weight: 900; line-height: 0.85;
   color: rgba(255,255,255,0.04); pointer-events: none; user-select: none;
   letter-spacing: -0.05em;
@@ -267,8 +267,8 @@ a[href^="mailto:"]:hover { text-decoration: underline; }
 #new-moa .sec-accent { background: var(--crimson); }
 #new-moa .sec-h2 { color: #ffffff; }
 #new-moa .sec-lead { color: rgba(255,255,255,0.55); }
-#new-moa .draft-banner { background: #ffd54f; border-left-color: #c68e00; color: #1a1100; }
-#new-moa .draft-banner strong { color: #7a3a00; }
+#new-moa .draft-banner { background: rgba(255,255,255,0.08); border-left-color: rgba(255,255,255,0.35); color: rgba(255,255,255,0.82); }
+#new-moa .draft-banner strong { color: rgba(255,255,255,0.97); }
 #new-moa .acc-item { background: rgba(255,255,255,0.09); border-color: rgba(255,255,255,0.14); border-radius: var(--radius); }
 #new-moa .moa-pos { border-left-color: #6fcf97; }
 #new-moa .moa-cau { border-left-color: #ffd54f; }
@@ -308,6 +308,7 @@ a[href^="mailto:"]:hover { text-decoration: underline; }
 
 /* Accordion */
 .acc-group { display: flex; flex-direction: column; gap: 6px; }
+#new-moa .acc-group { gap: 20px; }
 .acc-item { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
 .acc-btn { width: 100%; background: none; border: none; padding: 17px 20px; text-align: left; cursor: pointer; display: flex; align-items: center; gap: 12px; transition: background var(--transition); font-family: inherit; }
 .acc-btn:hover { background: var(--bg); }
@@ -387,6 +388,75 @@ a[href^="mailto:"]:hover { text-decoration: underline; }
 .moa-title { font-size: 0.9rem; font-weight: 700; color: var(--text); }
 .acc-btn.open .moa-title { color: white; }
 
+/* MOA negotiation stat bar */
+.moa-stat-bar {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin: 20px 0 20px;
+  padding: 24px 28px;
+  background: rgba(255,255,255,0.05);
+  border-left: 4px solid var(--crimson);
+  border-radius: 4px;
+}
+.moa-stat-main { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; gap: 4px; }
+.moa-stat-num { font-size: 3.6rem; font-weight: 800; color: #ffffff; line-height: 1; letter-spacing: -0.02em; }
+.moa-stat-unit { font-size: 0.72rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.08em; text-align: center; white-space: nowrap; }
+.moa-stat-divider { width: 1px; align-self: stretch; background: rgba(255,255,255,0.12); flex-shrink: 0; }
+.moa-stat-context { color: rgba(255,255,255,0.72); font-size: 0.9rem; line-height: 1.65; }
+.moa-stat-context strong { color: rgba(255,255,255,0.92); }
+@media (max-width: 560px) {
+  .moa-stat-bar { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .moa-stat-divider { display: none; }
+  .moa-stat-num { font-size: 2.8rem; }
+}
+
+/* MOA numbered section dividers */
+.moa-section {
+  margin: 52px 0 18px;
+  padding-top: 36px;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  display: grid;
+  grid-template-columns: 68px 1fr;
+  gap: 0 20px;
+  align-items: start;
+}
+.moa-section:first-child {
+  margin-top: 36px;
+  padding-top: 0;
+  border-top: none;
+}
+.moa-section-num {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--crimson);
+  line-height: 1;
+  letter-spacing: -0.05em;
+  padding-top: 2px;
+  font-variant-numeric: tabular-nums;
+}
+.moa-section-h {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.25;
+  margin-bottom: 9px;
+  letter-spacing: -0.015em;
+}
+.moa-section-p {
+  font-size: 0.87rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.65;
+  margin: 0;
+}
+@media (max-width: 520px) {
+  .moa-section { grid-template-columns: 1fr; gap: 4px 0; }
+  .moa-section-num { font-size: 2rem; }
+  .moa-card-btn { padding: 18px 16px; gap: 12px; }
+  .moa-card-label { font-size: 1.2rem; }
+  .moa-card-body .acc-group { padding: 10px 10px 14px; }
+}
+
 /* Draft banner */
 .draft-banner { background: #f0f1fa; border-left: 4px solid var(--navy); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; padding: 12px 18px; font-size: 0.87rem; margin-bottom: 18px; color: var(--text-mid); }
 .draft-banner strong { color: var(--navy); }
@@ -460,6 +530,87 @@ a[href^="mailto:"]:hover { text-decoration: underline; }
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='24'%3E%3Cpath d='M0 12 Q20 4 40 12 Q60 20 80 12' fill='none' stroke='white' stroke-width='0.8' opacity='0.035'/%3E%3C/svg%3E");
   background-size: 80px 24px;
 }
+
+/* MOA section cards — white accordion cards on dark background */
+.moa-card {
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Ccircle cx='10' cy='10' r='1.1' fill='%232B3178' opacity='0.1'/%3E%3C/svg%3E");
+  background-size: 20px 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.18);
+  overflow: hidden;
+}
+/* Card accordion button (the visible header) */
+.moa-card-btn {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 22px 24px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  transition: background 0.15s;
+}
+.moa-card-btn:hover { background: rgba(0,0,0,0.03); }
+.moa-card-btn.open { background: rgba(0,0,0,0.02); }
+.moa-card-label {
+  flex: 1;
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+.moa-card-chevron {
+  font-size: 1.3rem;
+  color: rgba(0,0,0,0.28);
+  transition: transform 0.25s;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.moa-card-btn.open .moa-card-chevron { transform: rotate(180deg); color: var(--crimson); }
+/* Card body — collapsed by default */
+.moa-card-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+.moa-card-body .moa-section-p {
+  padding: 20px 24px 18px;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.65;
+  border-top: 1px solid rgba(0,0,0,0.07);
+  border-bottom: 3px solid rgba(190,11,64,0.12);
+  background: rgba(190,11,64,0.03);
+}
+.moa-card-body .acc-group { padding: 12px 16px 16px; gap: 6px; }
+/* Inside cards: accordion re-skin for light background */
+#new-moa .moa-card .acc-item { background: #f9fafb; border-color: rgba(0,0,0,0.09); }
+#new-moa .moa-card .acc-btn:hover { background: rgba(0,0,0,0.04); }
+#new-moa .moa-card .acc-btn.open { background: var(--crimson); }
+#new-moa .moa-card .acc-label,
+#new-moa .moa-card .moa-title { color: var(--text); }
+#new-moa .moa-card .acc-btn.open .acc-label,
+#new-moa .moa-card .acc-btn.open .moa-title { color: #ffffff; }
+#new-moa .moa-card .acc-chevron { color: rgba(0,0,0,0.28); }
+#new-moa .moa-card .acc-btn.open .acc-chevron { color: rgba(255,255,255,0.75); }
+#new-moa .moa-card .acc-body {
+  border-top-color: rgba(0,0,0,0.08);
+  color: var(--text-mid);
+  background: #ffffff;
+}
+#new-moa .moa-card .acc-body p { color: var(--text-mid); }
+#new-moa .moa-card .acc-body strong { color: var(--text); }
+#new-moa .moa-card .acc-body ul li { color: var(--text-mid); }
+#new-moa .moa-card .moa-pos { border-left-color: #3a9460; }
+#new-moa .moa-card .moa-cau { border-left-color: #c98c00; }
+#new-moa .moa-card .source-text { color: rgba(0,0,0,0.35); border-top-color: rgba(0,0,0,0.08); }
 
 /* Key Rights: concentric-ring accent, top-right corner */
 #key-rights {
@@ -621,17 +772,123 @@ a[href^="mailto:"]:hover { text-decoration: underline; }
     <div class="expl-wrap">
       <div class="sec-accent"></div>
       <h2 class="sec-h2">What's New in the 2026 MOA</h2>
-      <p class="sec-lead">The major changes pending ratification — what they mean for you in plain language.</p>
-      <div class="draft-banner"><strong>⚠️ Draft — pending membership ratification (May 2026).</strong> This guide reflects the draft provisions. Until ratified, existing terms remain in effect.</div>
+      <p class="sec-lead">Six months of intensive negotiations, grounded in member surveys, grievance data, retrenchment meeting feedback, and advice from AAUP national financial experts and our labor lawyer. Here is what your union secured.</p>
+
+      <div class="moa-stat-bar">
+        <div class="moa-stat-main">
+          <span class="moa-stat-num">68.5</span>
+          <span class="moa-stat-unit">hours in May alone</span>
+        </div>
+        <div class="moa-stat-divider"></div>
+        <p class="moa-stat-context">Plus <strong>34+ hours in April</strong> — over six months of meetings with university leadership to secure this MOA, covering every lever of the university's finances: healthcare plans, retirement options, endowment draws, debt, lines of credit, adjunct costs, and more.</p>
+      </div>
+
+      <div class="moa-stat-bar" style="border-left-color:#6fcf97; margin-top:16px;">
+        <div class="moa-stat-main">
+          <span class="moa-stat-num" style="color:#6fcf97;">Yes</span>
+          <span class="moa-stat-unit">vote to ratify</span>
+        </div>
+        <div class="moa-stat-divider"></div>
+        <p class="moa-stat-context">The draft MOA (dated May 22, 2026) takes effect only upon a membership YES vote. Until ratified, existing terms remain in effect. <strong>Check your Utica email for voting instructions and timeline.</strong></p>
+      </div>
       <div class="acc-group">
-        <div class="acc-item moa-pos"><button class="acc-btn" onclick="toggle(this)"><span class="moa-icon">🛡️</span><span class="moa-title acc-label">New Retrenchment Options: Severance, Off-Ramp &amp; Retirement</span><span class="acc-chevron">▼</span></button><div class="acc-body"><p>If retrenched, you now choose between: (1) severance pay, (2) a half-time off-ramp (work half your load at half your salary plus full benefits), or (3) retirement. The university will not contest your unemployment benefits for the severance or off-ramp options. Full reimbursement of all salary and retirement reductions from AY 2024–25, 2025–26, and 2026–27.</p></div></div>
-        <div class="acc-item moa-pos"><button class="acc-btn" onclick="toggle(this)"><span class="moa-icon">🔒</span><span class="moa-title acc-label">Automatic Reappointment in Years 1 &amp; 4 of the Tenure Track</span><span class="acc-chevron">▼</span></button><div class="acc-body"><p>Tenure-track faculty are now automatically reappointed in years 1 and 4 of the standard 6-year track — you cannot be non-renewed in those years except for just cause or retrenchment. This removes significant uncertainty at two previously vulnerable points in your tenure timeline.</p></div></div>
-        <div class="acc-item moa-pos"><button class="acc-btn" onclick="toggle(this)"><span class="moa-icon">🎓</span><span class="moa-title acc-label">Tenure Now Means Simultaneous Promotion to Associate</span><span class="acc-chevron">▼</span></button><div class="acc-body"><p>For tenure-track faculty hired on or after August 1, 2026: earning tenure automatically means promotion to Associate Professor — one application, one decision. Eliminates the two-step process and the gap between tenure grant and promotion.</p></div></div>
-        <div class="acc-item moa-pos"><button class="acc-btn" onclick="toggle(this)"><span class="moa-icon">⭐</span><span class="moa-title acc-label">Automatic Emeritus Status (Retroactive)</span><span class="acc-chevron">▼</span></button><div class="acc-body"><p>Emeritus status is now granted automatically to those who qualify (10+ years, good standing, irrevocable retirement) — no faculty vote required. Retroactive: members who retired on or before May 31, 2026 and qualify may request it from the Provost.</p></div></div>
-        <div class="acc-item moa-cau"><button class="acc-btn" onclick="toggle(this)"><span class="moa-icon">📈</span><span class="moa-title acc-label">Salary Structure: Freeze in AY 2026–27, Then Growth Through 2030</span><span class="acc-chevron">▼</span></button><div class="acc-body"><p>AY 2026–27: salaries are <strong>frozen at January 2026 levels</strong> — a 3.5% reduction from the temporarily restored levels — to help support the university's long-term financial stability. AY 2027–28 through 2029–30: annual increases of 2.5%, 2.75%, and 3.0%, plus fixed-dollar additions and DOE benchmark bonuses.</p></div></div>
-        <div class="acc-item moa-cau"><button class="acc-btn" onclick="toggle(this)"><span class="moa-icon">🏦</span><span class="moa-title acc-label">Retirement Contributions: Temporarily Reduced, Fully Restored by 2029</span><span class="acc-chevron">▼</span></button><div class="acc-body"><p>Employer retirement contributions are temporarily reduced starting August 2026. Full restoration to original contractual amounts by August 1, 2029. You continue advancing through tiers normally during the reduction period.</p></div></div>
-        <div class="acc-item moa-pos"><button class="acc-btn" onclick="toggle(this)"><span class="moa-icon">📚</span><span class="moa-title acc-label">Professional Development Fund Grows Automatically</span><span class="acc-chevron">▼</span></button><div class="acc-body"><p>$175,000 in AY 2026–27, growing to $190,000 by AY 2029–30. <strong>Built-in growth trigger:</strong> if the fund is fully used in any year, the following year's budget increases by an additional $15,000.</p></div></div>
-        <div class="acc-item moa-pos"><button class="acc-btn" onclick="toggle(this)"><span class="moa-icon">🏢</span><span class="moa-title acc-label">Outside Employment: Advance Approval Requirement Removed</span><span class="acc-chevron">▼</span></button><div class="acc-body"><p>The 2026 Draft MOA removes the prior requirement to seek advance Provost approval before taking outside paid professional work. You are now free to engage in consulting, advising, and other professional activities without prior notice or approval. The only remaining constraint: if the Provost identifies an actual conflict of interest, they must meet with you first (you may bring a union representative); they can only require you to stop the conflicting portion of the outside work; you may appeal to the Hearing Committee; and you may continue the outside work during the appeal period.</p></div></div>
+
+        <div class="moa-card">
+          <button class="moa-card-btn" onclick="cardToggle(this)" aria-expanded="false">
+            <div class="moa-section-num">01</div>
+            <div class="moa-card-label">Shared Sacrifice, Financial Resilience</div>
+            <span class="moa-card-chevron">▼</span>
+          </button>
+          <div class="moa-card-body">
+            <p class="moa-section-p">A defined, time-limited contribution to the university's long-term financial health — negotiated by union leaders who studied every number — paired with a legally binding salary growth roadmap through 2030.</p>
+            <div class="acc-group">
+          <div class="acc-item moa-cau"><button class="acc-btn" onclick="toggle(this)"><span class="moa-icon">📈</span><span class="moa-title acc-label">Salary Structure: Defined Freeze in 2026–27, Then Contractual Growth Through 2030</span><span class="acc-chevron">▼</span></button><div class="acc-body"><p><strong>The full picture:</strong> AY 2026–27 salaries are frozen at January 2026 levels — a 3.5% reduction from the temporarily restored levels. This is a shared, <em>defined</em> contribution to the university's financial stability, made by union leaders who spent more than 100 hours in April and May alone understanding every lever of that financial situation. It comes with a <strong>legally binding growth roadmap</strong>: 2.5% in AY 2027–28, 2.75% in 2028–29, and 3.0% in 2029–30, plus fixed-dollar additions and DOE benchmark bonuses. This is not an open-ended concession — it is a finite trade with a clear exit.</p></div></div>
+          <div class="acc-item moa-cau"><button class="acc-btn" onclick="toggle(this)"><span class="moa-icon">🏦</span><span class="moa-title acc-label">Retirement Contributions: Temporarily Reduced, Legally Bound to Full Restoration by 2029</span><span class="acc-chevron">▼</span></button><div class="acc-body"><p><strong>Temporary, not permanent.</strong> Employer contributions are reduced starting August 2026, with <strong>full restoration to original contractual amounts by August 1, 2029</strong> — legally binding. You continue advancing through tiers normally throughout the reduction period; your tier status is not affected. The binding restoration date and tier protection were non-negotiable requirements from AAUP-Utica leadership going into negotiations.</p></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="moa-card">
+          <button class="moa-card-btn" onclick="cardToggle(this)" aria-expanded="false">
+            <div class="moa-section-num">02</div>
+            <div class="moa-card-label">Voluntary &amp; Involuntary Separation Options</div>
+            <span class="moa-card-chevron">▼</span>
+          </button>
+          <div class="moa-card-body">
+            <p class="moa-section-p">For the first time, if you're retrenched, you choose what comes next. And two new voluntary pathways let faculty leave on their own terms.</p>
+            <div class="acc-group">
+          <div class="acc-item moa-pos"><button class="acc-btn" onclick="toggle(this)"><span class="moa-icon">🛡️</span><span class="moa-title acc-label">Unprecedented Retrenchment Options: Severance, Off-Ramp &amp; Retirement</span><span class="acc-chevron">▼</span></button><div class="acc-body"><p>These options came directly out of Fall 2025 retrenchment meeting feedback and have never existed in the CBA before. If retrenched, <strong>you choose</strong>: (1) a severance package, (2) a half-time off-ramp (half your load, half your salary, full benefits until departure), or (3) retirement. The university will not contest your unemployment benefits for options 1 or 2. <strong>And critically:</strong> full reimbursement of all salary and retirement reductions from AY 2024–25, 2025–26, and 2026–27 — you get back what was reduced over those three years.</p></div></div>
+          <div class="acc-item moa-pos"><button class="acc-btn" onclick="toggle(this)"><span class="moa-icon">🌿</span><span class="moa-title acc-label">New Voluntary Options: Transitional Sabbatical &amp; Off-Ramp</span><span class="acc-chevron">▼</span></button><div class="acc-body"><p><strong>Transitional Sabbatical (new):</strong> At least two guaranteed per year. Eligible members (10+ years of service) who commit to a December 31 retirement receive a fall semester at <strong>full pay with no duties</strong>. Apply by January 25. A dignified, compensated path out — on your terms, not the university's.</p><p><strong>Voluntary Half-Time Off-Ramp (expanded):</strong> Faculty and librarians who submit an irrevocable resignation or retirement letter may elect to work half-load at half-salary for up to two years, retaining full benefits, rank, and seniority. During the off-ramp, meeting attendance, advising, admissions events, and other non-teaching duties are explicitly not expected and may not count against you.</p></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="moa-card">
+          <button class="moa-card-btn" onclick="cardToggle(this)" aria-expanded="false">
+            <div class="moa-section-num">03</div>
+            <div class="moa-card-label">First-Ever AI Protections</div>
+            <span class="moa-card-chevron">▼</span>
+          </button>
+          <div class="moa-card-body">
+            <p class="moa-section-p">Nine new contractual protections: no AI surveillance of your performance, no AI in tenure or discipline decisions, and the right to opt out of any platform without penalty.</p>
+            <div class="acc-group">
+          <div class="acc-item moa-pos"><button class="acc-btn" onclick="toggle(this)"><span class="moa-icon">🤖</span><span class="moa-title acc-label">No Surveillance, No Delegation, Right to Opt Out</span><span class="acc-chevron">▼</span></button><div class="acc-body"><p>The first AI protections ever negotiated into this contract — covering nine distinct provisions:</p><ul><li><strong>No AI surveillance:</strong> AI tools may not be used to monitor or evaluate your performance.</li><li><strong>Right to opt out:</strong> You may decline any AI platform adopted by the university without penalty, discipline, or negative evaluation — as long as you can still meet your contractual obligations.</li><li><strong>No AI in decisions:</strong> AI cannot replace independent human judgment in tenure, promotion, reappointment, discipline, or grievance matters.</li><li><strong>No surveillance of protected activities:</strong> AI may not be used to monitor or interfere with protected union organizing or concerted activity.</li><li><strong>120-day notice:</strong> Before implementing any new AI educational technology or learning analytics tool, the university must notify AAUP-Utica and the Academic Technology Committee at least 120 days in advance.</li><li><strong>Librarian consultation:</strong> Any AI system affecting librarian duties requires 120-day advance consultation with librarian bargaining unit members and AAUP-Utica.</li><li><strong>Data protection:</strong> The university cannot authorize third parties to mine or train algorithms on members' personally identifiable information (PII).</li><li><strong>Disclosure:</strong> Upon request, the university must disclose the data practices and algorithmic logic of educational technology in use.</li><li><strong>Joint task force:</strong> A Joint Labor Management Technology Task Force is established to evaluate technology procurement and its impact on working conditions.</li></ul></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="moa-card">
+          <button class="moa-card-btn" onclick="cardToggle(this)" aria-expanded="false">
+            <div class="moa-section-num">04</div>
+            <div class="moa-card-label">Streamlined Workload</div>
+            <span class="moa-card-chevron">▼</span>
+          </button>
+          <div class="moa-card-body">
+            <p class="moa-section-p">Fewer required processes, fewer mandatory reviews, fewer administrative hoops. Two specific duty requirements — admissions event attendance and outside employment approval — are eliminated entirely. All meetings must now offer a remote option.</p>
+            <div class="acc-group">
+          <div class="acc-item moa-pos"><button class="acc-btn" onclick="toggle(this)"><span class="moa-icon">🔒</span><span class="moa-title acc-label">Automatic Reappointment in Years 1 &amp; 4 of the Tenure Track</span><span class="acc-chevron">▼</span></button><div class="acc-body"><p>Tenure-track faculty are now automatically reappointed in years 1 and 4 of the standard 6-year track — you cannot be non-renewed in those years except for just cause or retrenchment. This means fewer review meetings, fewer points of vulnerability, and two fewer moments where your continuation could be called into question without cause. On shortened tenure schedules (3, 4, or 5 years), the automatic reappointment years are adjusted proportionally.</p></div></div>
+          <div class="acc-item moa-pos"><button class="acc-btn" onclick="toggle(this)"><span class="moa-icon">🎓</span><span class="moa-title acc-label">Tenure &amp; Promotion: One Process, One Meeting, One Decision</span><span class="acc-chevron">▼</span></button><div class="acc-body"><p>For tenure-track faculty hired on or after August 1, 2026: the tenure application is also the promotion application — one set of materials, one set of meetings, one simultaneous decision. Earning tenure means automatic promotion to Associate Professor. Eliminates the second round of applications, meetings, and decisions that currently follow tenure. Faculty hired before that date still apply separately and remain eligible to do so.</p></div></div>
+          <div class="acc-item moa-pos"><button class="acc-btn" onclick="toggle(this)"><span class="moa-icon">⭐</span><span class="moa-title acc-label">Automatic Emeritus Status — No Faculty Vote Required</span><span class="acc-chevron">▼</span></button><div class="acc-body"><p>Faculty and librarians who meet the criteria (10+ years of service, good standing, irrevocable retirement declaration) are now automatically granted emeritus status — the old process requiring a faculty vote is eliminated. <strong>Retroactive:</strong> members who retired on or before May 31, 2026 and qualify may request status directly from the Provost. Emeritus benefits include university title, email, library access, recreational facilities, dining, parking, and bookstore discount.</p></div></div>
+          <div class="acc-item moa-pos"><button class="acc-btn" onclick="toggle(this)"><span class="moa-icon">🏢</span><span class="moa-title acc-label">Outside Employment: Prior Approval Requirement Removed</span><span class="acc-chevron">▼</span></button><div class="acc-body"><p>The prior requirement to seek advance Provost approval before taking outside paid professional work is gone. You no longer need to submit a form and wait for permission to consult, advise, or pursue other professional activities. The only remaining check: if the Provost identifies an <em>actual</em> conflict of interest, they must meet with you first (you may bring a union representative); they can only require you to stop the conflicting portion; you may appeal to the Hearing Committee; and you may continue the outside work during the appeal period. Any discipline under this provision requires just cause and is subject to the grievance procedure.</p></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="moa-card">
+          <button class="moa-card-btn" onclick="cardToggle(this)" aria-expanded="false">
+            <div class="moa-section-num">05</div>
+            <div class="moa-card-label">Addressing Administrative Overreach</div>
+            <span class="moa-card-chevron">▼</span>
+          </button>
+          <div class="moa-card-body">
+            <p class="moa-section-p">Administrative overreach — using attendance requirements and review processes as tools of pressure and control — has been a persistent and growing concern. This MOA directly addresses it: non-attendance at meetings can no longer be used against you in any disciplinary or review procedure.</p>
+            <div class="acc-group">
+          <div class="acc-item moa-pos"><button class="acc-btn" onclick="toggle(this)"><span class="moa-icon">🙋</span><span class="moa-title acc-label">Meeting Attendance: No Longer a Disciplinary Threat</span><span class="acc-chevron">▼</span></button><div class="acc-body"><p>The old contract language requiring faculty to "attend scheduled meetings of the School, Department, and the College" as a compellable duty — subject to discipline — is replaced. The new language: attendance at Faculty Senate and university meetings is <em>expected</em> as part of service, but <strong>non-attendance shall not be used punitively in any disciplinary procedure.</strong> The same protection applies to Commencement and Convocation. All meetings must provide a remote option where possible. The requirement to attend at least one on-campus admissions event each year is <strong>fully stricken.</strong> Attendance may still count positively toward service in reappointment, tenure, and promotion — it simply cannot be weaponized against you.</p></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="moa-card">
+          <button class="moa-card-btn" onclick="cardToggle(this)" aria-expanded="false">
+            <div class="moa-section-num">06</div>
+            <div class="moa-card-label">Increased Transparency and Accountability</div>
+            <span class="moa-card-chevron">▼</span>
+          </button>
+          <div class="moa-card-body">
+            <p class="moa-section-p">More transparency about the university's financial calculations. More transparency about administratively-created committees and who sits on them. More shared governance — including a new joint task force to ensure faculty have a voice in how AI and technology are implemented.</p>
+            <div class="acc-group">
+          <div class="acc-item moa-pos"><button class="acc-btn" onclick="toggle(this)"><span class="moa-icon">🔍</span><span class="moa-title acc-label">Financial &amp; Committee Transparency, Expanded Union Voice</span><span class="acc-chevron">▼</span></button><div class="acc-body"><p><strong>Financial transparency:</strong> The university must now provide AAUP-Utica with audited financial statements upon completion, plus the DOE financial ratio calculation and the Debt Service Coverage Ratio — the same numbers that drive budget decisions. The union will no longer be negotiating in the dark.</p><p><strong>Committee transparency:</strong> Twice each year (January and September), the university must publish a complete roster of all non-departmental committees, task forces, and workgroups — name, purpose, every member's name and affiliation, whether they were elected or appointed, who appointed them, and the expected end date. This creates visibility into whether appointed task forces are being used to route decisions around Faculty Senate and established shared governance channels.</p><p><strong>Expanded union voice:</strong> AAUP-Utica representation in Meet &amp; Discuss meetings increases from 2 to 4 members, with agendas jointly prepared by both parties.</p><p><strong>Joint Technology Task Force:</strong> A Joint Labor Management Technology Task Force is established to evaluate technology procurement — including AI — and its impact on bargaining unit working conditions, with recommendations back to the union and the Academic Technology Committee.</p></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="moa-card">
+          <button class="moa-card-btn" onclick="cardToggle(this)" aria-expanded="false">
+            <div class="moa-section-num">07</div>
+            <div class="moa-card-label">New Benefit: On-Campus Housing Option</div>
+            <span class="moa-card-chevron">▼</span>
+          </button>
+          <div class="moa-card-body">
+            <p class="moa-section-p">A practical option for faculty in a housing transition — or new hires looking for somewhere to land while apartment hunting.</p>
+            <div class="acc-group">
+          <div class="acc-item moa-pos"><button class="acc-btn" onclick="toggle(this)"><span class="moa-icon">🏠</span><span class="moa-title acc-label">On-Campus Housing: Available to Bargaining Unit Members</span><span class="acc-chevron">▼</span></button><div class="acc-body"><p>Bargaining unit members may now request on-campus housing in University residential facilities through the Office of Human Resources. Housing is assigned on a first-come, first-served basis, subject to availability, and includes a private bathroom. Members are charged the University's standard monthly rate less a <strong>10% discount</strong>. Agreements are term-based (Fall, Spring, or Summer) and renewable each semester. Pioneer Village units are excluded.</p></div></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -702,7 +959,7 @@ a[href^="mailto:"]:hover { text-decoration: underline; }
           <button class="doc-btn" onclick="docToggle(this)">
             <div class="doc-badge">2</div>
             <div class="doc-btn-content">
-              <div class="doc-btn-title">MOU #1 — CBA Retroactivity <span class="tl-tag tag-expansion">Clarification</span></div>
+              <div class="doc-btn-title">MOU — CBA Retroactivity <span class="tl-tag tag-expansion">Clarification</span></div>
               <div class="doc-btn-meta">Signed November 22, 2016 · 1 page</div>
             </div>
             <span class="doc-chevron">▼</span>
@@ -717,7 +974,7 @@ a[href^="mailto:"]:hover { text-decoration: underline; }
           <button class="doc-btn" onclick="docToggle(this)">
             <div class="doc-badge">3</div>
             <div class="doc-btn-content">
-              <div class="doc-btn-title">MOA #2 — Birth &amp; Adoption Leave for HEOP / Librarians <span class="tl-tag tag-expansion">Rights Expansion</span></div>
+              <div class="doc-btn-title">MOA — Birth &amp; Adoption Leave for HEOP / Librarians <span class="tl-tag tag-expansion">Rights Expansion</span></div>
               <div class="doc-btn-meta">Signed April 19, 2017 · 1 page</div>
             </div>
             <span class="doc-chevron">▼</span>
@@ -732,7 +989,7 @@ a[href^="mailto:"]:hover { text-decoration: underline; }
           <button class="doc-btn" onclick="docToggle(this)">
             <div class="doc-badge">4</div>
             <div class="doc-btn-content">
-              <div class="doc-btn-title">MOA #4 — NTE Faculty January Appointments &amp; Non-Renewal Appeal Rights <span class="tl-tag tag-expansion">Rights Expansion</span></div>
+              <div class="doc-btn-title">MOA — NTE Faculty January Appointments &amp; Non-Renewal Appeal Rights <span class="tl-tag tag-expansion">Rights Expansion</span></div>
               <div class="doc-btn-meta">Signed September 25, 2018 · 2 pages · Article 8.17</div>
             </div>
             <span class="doc-chevron">▼</span>
@@ -747,7 +1004,7 @@ a[href^="mailto:"]:hover { text-decoration: underline; }
           <button class="doc-btn" onclick="docToggle(this)">
             <div class="doc-badge">5</div>
             <div class="doc-btn-content">
-              <div class="doc-btn-title">MOA #5 — School of Arts and Sciences into Two Divisions <span class="tl-tag tag-expansion">Rights Expansion</span></div>
+              <div class="doc-btn-title">MOA — School of Arts and Sciences into Two Divisions <span class="tl-tag tag-expansion">Rights Expansion</span></div>
               <div class="doc-btn-meta">Effective August 1, 2018 · 3 pages · Articles 8.2, 8.4, 8.6, 8.8, 8.12</div>
             </div>
             <span class="doc-chevron">▼</span>
@@ -762,7 +1019,7 @@ a[href^="mailto:"]:hover { text-decoration: underline; }
           <button class="doc-btn" onclick="docToggle(this)">
             <div class="doc-badge">6</div>
             <div class="doc-btn-content">
-              <div class="doc-btn-title">MOA #6 — COVID-19 Extension &amp; Modifications 2020–2021 <span class="tl-tag tag-crisis">COVID Response</span></div>
+              <div class="doc-btn-title">MOA — COVID-19 Extension &amp; Modifications 2020–2021 <span class="tl-tag tag-crisis">COVID Response</span></div>
               <div class="doc-btn-meta">Signed July 2020 · 3 pages</div>
             </div>
             <span class="doc-chevron">▼</span>
@@ -777,7 +1034,7 @@ a[href^="mailto:"]:hover { text-decoration: underline; }
           <button class="doc-btn" onclick="docToggle(this)">
             <div class="doc-badge">7</div>
             <div class="doc-btn-content">
-              <div class="doc-btn-title">MOA #7 — Fall 2020 Reopening / Effects Bargaining <span class="tl-tag tag-crisis">COVID Response</span></div>
+              <div class="doc-btn-title">MOA — Fall 2020 Reopening / Effects Bargaining <span class="tl-tag tag-crisis">COVID Response</span></div>
               <div class="doc-btn-meta">Signed October 21, 2020 · 4 pages</div>
             </div>
             <span class="doc-chevron">▼</span>
@@ -792,7 +1049,7 @@ a[href^="mailto:"]:hover { text-decoration: underline; }
           <button class="doc-btn" onclick="docToggle(this)">
             <div class="doc-badge">8</div>
             <div class="doc-btn-content">
-              <div class="doc-btn-title">MOA #8 — CBA Extension 2021–2022 <span class="tl-tag tag-economic">Economic / Extension</span></div>
+              <div class="doc-btn-title">MOA — CBA Extension 2021–2022 <span class="tl-tag tag-economic">Economic / Extension</span></div>
               <div class="doc-btn-meta">Signed August 26, 2021 · 3 pages</div>
             </div>
             <span class="doc-chevron">▼</span>
@@ -803,17 +1060,17 @@ a[href^="mailto:"]:hover { text-decoration: underline; }
           </div>
         </div>
 
-        <div class="doc-acc-item type-economic">
+        <div class="doc-acc-item type-expansion">
           <button class="doc-btn" onclick="docToggle(this)">
             <div class="doc-badge">9</div>
             <div class="doc-btn-content">
-              <div class="doc-btn-title">MOA #9 — CBA Extension 2022–2023 <span class="tl-tag tag-economic">Economic / Extension</span></div>
-              <div class="doc-btn-meta">Signed March 2022 · 3 pages</div>
+              <div class="doc-btn-title">MOA — Duo MFA / iPad Accommodation for Members <span class="tl-tag tag-expansion">Rights Expansion</span></div>
+              <div class="doc-btn-meta">Signed March 2022 · 1 page</div>
             </div>
             <span class="doc-chevron">▼</span>
           </button>
           <div class="doc-acc-body">
-            <p>Extended CBA through May 31, 2023. 3% salary increase; continued COVID protections for PDC and SOOT evaluations.</p>
+            <p>Members of the AAUP-Utica bargaining unit who choose not to install the Duo mobile app on their personal devices will be issued a Utica University iPad capable of running the Duo app. The university agreed that while MFA is acceptable as a security measure, mandatory installation on personally owned devices is not.</p>
             <a href="https://aauputica.org/wp-content/uploads/2026/05/9.-DuoMemoFinalSigned-03-22_OCR.pdf" class="doc-pdf-link" target="_blank" rel="noopener">📄 View PDF →</a>
           </div>
         </div>
@@ -822,7 +1079,7 @@ a[href^="mailto:"]:hover { text-decoration: underline; }
           <button class="doc-btn" onclick="docToggle(this)">
             <div class="doc-badge">10</div>
             <div class="doc-btn-content">
-              <div class="doc-btn-title">MOA #10 — Flexible Work Arrangements for Librarians &amp; HEOP <span class="tl-tag tag-expansion">Rights Expansion</span></div>
+              <div class="doc-btn-title">MOA — Flexible Work Arrangements for Librarians &amp; HEOP <span class="tl-tag tag-expansion">Rights Expansion</span></div>
               <div class="doc-btn-meta">Signed December 21, 2022 · 4 pages</div>
             </div>
             <span class="doc-chevron">▼</span>
@@ -837,7 +1094,7 @@ a[href^="mailto:"]:hover { text-decoration: underline; }
           <button class="doc-btn" onclick="docToggle(this)">
             <div class="doc-badge">11</div>
             <div class="doc-btn-content">
-              <div class="doc-btn-title">MOA #11 — Comprehensive Rights &amp; Economic Package 2023–2025 <span class="tl-tag tag-expansion">Rights Expansion</span></div>
+              <div class="doc-btn-title">MOA — Comprehensive Rights &amp; Economic Package 2023–2025 <span class="tl-tag tag-expansion">Rights Expansion</span></div>
               <div class="doc-btn-meta">Signed October 6, 2023 · 15 pages</div>
             </div>
             <span class="doc-chevron">▼</span>
@@ -852,7 +1109,7 @@ a[href^="mailto:"]:hover { text-decoration: underline; }
           <button class="doc-btn" onclick="docToggle(this)">
             <div class="doc-badge">12</div>
             <div class="doc-btn-content">
-              <div class="doc-btn-title">MOA #12 — Paycut MOA / Online Enrollment Pilot <span class="tl-tag tag-economic">Economic</span></div>
+              <div class="doc-btn-title">MOA — Paycut / Online Enrollment Pilot <span class="tl-tag tag-economic">Economic</span></div>
               <div class="doc-btn-meta">Signed February 26, 2025 · 6 pages</div>
             </div>
             <span class="doc-chevron">▼</span>
@@ -867,7 +1124,7 @@ a[href^="mailto:"]:hover { text-decoration: underline; }
           <button class="doc-btn" onclick="docToggle(this)">
             <div class="doc-badge">13</div>
             <div class="doc-btn-content">
-              <div class="doc-btn-title">MOA #13 — Curriculum Governance Settlement <span class="tl-tag tag-expansion">Rights Expansion</span></div>
+              <div class="doc-btn-title">MOA — Curriculum Governance Settlement <span class="tl-tag tag-expansion">Rights Expansion</span></div>
               <div class="doc-btn-meta">Signed February 26, 2025 · 9 pages</div>
             </div>
             <span class="doc-chevron">▼</span>
@@ -882,7 +1139,7 @@ a[href^="mailto:"]:hover { text-decoration: underline; }
           <button class="doc-btn" onclick="docToggle(this)">
             <div class="doc-badge">14</div>
             <div class="doc-btn-content">
-              <div class="doc-btn-title">MOA #14 — AY 2025–2026 Salary Reduction &amp; Retrenchment Withdrawal <span class="tl-tag tag-economic">Economic</span></div>
+              <div class="doc-btn-title">MOA — AY 2025–2026 Salary Reduction &amp; Retrenchment Withdrawal <span class="tl-tag tag-economic">Economic</span></div>
               <div class="doc-btn-meta">Signed December 17, 2025 · 3 pages</div>
             </div>
             <span class="doc-chevron">▼</span>
@@ -897,7 +1154,7 @@ a[href^="mailto:"]:hover { text-decoration: underline; }
           <button class="doc-btn" onclick="docToggle(this)">
             <div class="doc-badge">15</div>
             <div class="doc-btn-content">
-              <div class="doc-btn-title">MOA #15 — Health Insurance for Departing Faculty <span class="tl-tag tag-expansion">Rights Expansion</span></div>
+              <div class="doc-btn-title">MOA — Health Insurance for Departing Faculty <span class="tl-tag tag-expansion">Rights Expansion</span></div>
               <div class="doc-btn-meta">Signed February 26, 2026 · 2 pages</div>
             </div>
             <span class="doc-chevron">▼</span>
@@ -912,7 +1169,7 @@ a[href^="mailto:"]:hover { text-decoration: underline; }
           <button class="doc-btn" onclick="docToggle(this)">
             <div class="doc-badge">16</div>
             <div class="doc-btn-content">
-              <div class="doc-btn-title">⭐ MOA #16 — Comprehensive Agreement through May 2030 <span class="tl-tag tag-new">New · Pending</span></div>
+              <div class="doc-btn-title">⭐ MOA — Comprehensive Agreement through May 2030 <span class="tl-tag tag-new">New · Pending</span></div>
               <div class="doc-btn-meta">Draft May 22, 2026 · 25 pages · Pending membership ratification</div>
             </div>
             <span class="doc-chevron">▼</span>
@@ -2194,6 +2451,28 @@ function docToggle(btn) {
   document.querySelectorAll('.doc-btn.open').forEach(b => { b.classList.remove('open'); b.nextElementSibling.classList.remove('open'); });
   if (!wasOpen) {
     btn.classList.add('open'); body.classList.add('open');
+    setTimeout(() => {
+      const hh = document.querySelector('.site-header')?.offsetHeight || 60;
+      const top = btn.getBoundingClientRect().top + window.scrollY - hh - 10;
+      if (btn.getBoundingClientRect().top < hh + 10) window.scrollTo({ top, behavior: 'smooth' });
+    }, 30);
+  }
+}
+
+function cardToggle(btn) {
+  const body = btn.nextElementSibling;
+  const isOpen = btn.classList.contains('open');
+  btn.classList.toggle('open', !isOpen);
+  btn.setAttribute('aria-expanded', String(!isOpen));
+  if (isOpen) {
+    body.style.maxHeight = body.scrollHeight + 'px';
+    requestAnimationFrame(() => { body.style.maxHeight = '0'; });
+  } else {
+    body.style.maxHeight = body.scrollHeight + 'px';
+    body.addEventListener('transitionend', function h() {
+      if (btn.classList.contains('open')) body.style.maxHeight = 'none';
+      body.removeEventListener('transitionend', h);
+    });
     setTimeout(() => {
       const hh = document.querySelector('.site-header')?.offsetHeight || 60;
       const top = btn.getBoundingClientRect().top + window.scrollY - hh - 10;
