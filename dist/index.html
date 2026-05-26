@@ -2425,18 +2425,24 @@ function openKeyRight(id) {
   }, 120);
 }
 
+var _sectionTimer = null;
+
 function showView(name) {
+  if (_sectionTimer) { clearTimeout(_sectionTimer); _sectionTimer = null; }
   document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
   document.getElementById('view-' + name).classList.add('active');
   ['home', 'explore'].forEach(t => {
     document.getElementById('tab-' + t)?.classList.toggle('active', t === name || (name === 'situation' && t === 'home'));
   });
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo(0, 0);
 }
 
 function goToSection(id) {
   showView('explore');
-  setTimeout(function() {
+  if (_sectionTimer) clearTimeout(_sectionTimer);
+  _sectionTimer = setTimeout(function() {
+    _sectionTimer = null;
+    if (!document.getElementById('view-explore').classList.contains('active')) return;
     var el = document.getElementById(id);
     if (el) {
       var hh = (document.querySelector('.site-header') || {offsetHeight: 60}).offsetHeight;
