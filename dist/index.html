@@ -1240,7 +1240,7 @@ const situations = [
   { id:'parental-leave', icon:'👶', question:'I\'m expecting a child or need parental or disability leave', hint:'Paid parental leave for birth or adoption, tenure clock extensions, short- and long-term disability, and non-statutory leave.', kr:'kr-leaves', articles:'Articles 19.6–19.10' },
   { id:'outside-work', icon:'💼', question:'I want to do consulting or outside professional work', hint:'The 2026 Draft MOA removes the prior approval requirement — you are free to take outside work without Provost sign-off.', kr:'kr-workload', articles:'Article 13.1 · <a href="https://aauputica.org/wp-content/uploads/2026/05/16.-MOA-and-Appendices-In-Full-Draft_5-22-26.pdf" target="_blank" rel="noopener">2026 Draft MOA §17</a>' },
   { id:'edu-benefits', icon:'🎓', question:'I have questions about tuition benefits for myself or my family', hint:'Remitted tuition, dependent scholarships, tuition exchange, and cash grants — for you, your spouse or partner, and your children.', kr:'kr-compensation', articles:'Article 19.5 · <a href="https://aauputica.org/wp-content/uploads/2026/05/16.-MOA-and-Appendices-In-Full-Draft_5-22-26.pdf" target="_blank" rel="noopener">2026 Draft MOA §9</a>' },
-  { id:'elections', icon:'🗳️', question:'How do AAUP-Utica elections work?', hint:'Who can run for office, how nominations work, voting procedures, officer terms, and what happens when a seat becomes vacant — all based on the AAUP-Utica Bylaws.', kr:'kr-academic-freedom', articles:'<a href="https://aauputica.org/wp-content/uploads/2025/09/aaup-uc-bylaws-adopted-august-19-2025.pdf" target="_blank" rel="noopener">AAUP-Utica Bylaws</a> Article VII' },
+  { id:'nontraditional-teaching', icon:'📝', question:'What are non-traditional teaching credits?', hint:'Load credits, the course-reduction threshold, and how your work outside the classroom gets tracked and compensated under Article 18.4.', kr:'kr-workload', articles:'CBA Article 18.4' },
   { id:'retirement-eligible', icon:'🏦', question:'Am I retirement eligible under the CBA?', hint:'The specific age and service criteria that determine Eligible Retiree status, emeritus eligibility, and what is required to choose Option C under the 2026 MOA.', kr:'kr-leaves', articles:'CBA Articles 8.12, 19.5, 19.8 · <a href="https://aauputica.org/wp-content/uploads/2026/05/16.-MOA-and-Appendices-In-Full-Draft_5-22-26.pdf" target="_blank" rel="noopener">2026 Draft MOA §9</a>' }
 ];
 
@@ -2407,67 +2407,63 @@ const sitContent = {
       <button class="btn-secondary" onclick="showSituation('compensation')">Salary &amp; retirement questions</button>
     </div>`,
 
-  elections: `
+  'nontraditional-teaching': `
     <div class="detail-card">
-      <div class="d-icon">🗳️</div>
-      <h2 class="d-title">How AAUP-Utica Elections Work</h2>
+      <div class="d-icon">📝</div>
+      <h2 class="d-title">Non-Traditional Teaching &amp; Load Credits</h2>
     </div>
 
     <div class="sit-section">
-      <div class="sit-section-head">Overview</div>
-      <p class="sit-summary">AAUP-Utica officer elections are governed by <strong>Article VII of the Chapter Bylaws</strong>. Elections follow an alternating two-year cycle, with all officers serving two-year terms, renewable once. Elections conclude by June 30 each year, and new officers take office July 1.</p>
+      <div class="sit-section-head">What this means</div>
+      <p class="sit-summary">Work you do outside your regular course load — independent studies, thesis advising, graduate exams, stand-alone internships — earns you <strong>load credits</strong> under Article 18.4. Once you accumulate enough load credits, you are entitled to a course reduction. This work is compensated as a right, not a favor.</p>
     </div>
 
     <div class="sit-section">
-      <div class="sit-section-head">Who Is Elected and When</div>
+      <div class="sit-section-head">What Counts as Non-Traditional Teaching</div>
+      <p style="font-size:0.88rem;margin-bottom:10px;">The CBA defines non-traditional teaching as any of the following that is <em>not part of your regular load</em>:</p>
       <div class="dl-list">
-        <div class="dl-item"><span class="dl-pill" style="background:var(--sage);color:white;">Even Years</span><div class="dl-body"><div class="dl-rule">President, Treasurer, and 3 Members-at-Large</div></div></div>
-        <div class="dl-item"><span class="dl-pill" style="background:var(--navy);color:white;">Odd Years</span><div class="dl-body"><div class="dl-rule">Vice President, Secretary, and 3 Members-at-Large</div></div></div>
+        <div class="dl-item"><span class="dl-pill" style="background:#eff6ff;color:#1e3a5f;">Independent study</span><div class="dl-body"><div class="dl-rule">Teaching in independent study format. Must be approved by the appropriate School Dean <strong>in advance</strong>.</div></div></div>
+        <div class="dl-item"><span class="dl-pill" style="background:#eff6ff;color:#1e3a5f;">Tutorial</span><div class="dl-body"><div class="dl-rule">Teaching in tutorial format. Must be approved by the appropriate School Dean <strong>in advance</strong>.</div></div></div>
+        <div class="dl-item"><span class="dl-pill" style="background:#eff6ff;color:#1e3a5f;">Stand-alone internship supervision</span><div class="dl-body"><div class="dl-rule">Supervising internships that are <em>not</em> constituting a course.</div></div></div>
+        <div class="dl-item"><span class="dl-pill" style="background:#eff6ff;color:#1e3a5f;">Graduate thesis / project direction</span><div class="dl-body"><div class="dl-rule">Directing a graduate thesis or research project, or supervising an undergraduate honors thesis.</div></div></div>
+        <div class="dl-item"><span class="dl-pill" style="background:#eff6ff;color:#1e3a5f;">Thesis / project reading</span><div class="dl-body"><div class="dl-rule">Serving as a reader of a graduate thesis or research project.</div></div></div>
+        <div class="dl-item"><span class="dl-pill" style="background:#eff6ff;color:#1e3a5f;">Comprehensive graduate exams</span><div class="dl-body"><div class="dl-rule">Creating, writing, administering, and/or correcting/scoring a comprehensive graduate exam.</div></div></div>
       </div>
-      <p style="font-size:0.88rem;color:var(--text-mid);margin-top:10px;">Terms are two years. Officers may succeed themselves once (maximum two consecutive terms). The Treasurer may serve a third consecutive term if needed for continuity.</p>
     </div>
 
     <div class="sit-section">
-      <div class="sit-section-head">Who Can Run</div>
-      <p>To be eligible to run for any officer position, you must be a <strong>member in good standing for at least 6 continuous months</strong> prior to the start of the term for which you are running. You may either self-nominate or be placed on the ballot by a <strong>petition signed by at least 12 members</strong>.</p>
-    </div>
-
-    <div class="sit-section">
-      <div class="sit-section-head">The Election Calendar</div>
-      <ol class="steps-list">
-        <li class="step"><div class="step-num">1</div><div class="step-body">
-          <div class="step-title">Call for nominations</div>
-          <div class="step-desc">The Election Committee (≥3 members in good standing, not running for office, appointed by the Governing Board) sends a call for nominations via U.S. mail at least <strong>49 days before the election</strong>. The recommended date to send the call is by February 24.</div>
-        </div></li>
-        <li class="step"><div class="step-num">2</div><div class="step-body">
-          <div class="step-title">Nomination period</div>
-          <div class="step-desc">Nominations remain open for at least <strong>15 days</strong> after the call is sent. Candidates may self-nominate or submit a petition with 12 member signatures.</div>
-        </div></li>
-        <li class="step"><div class="step-num">3</div><div class="step-body">
-          <div class="step-title">Eligibility verification</div>
-          <div class="step-desc">The Election Committee verifies each nominee's eligibility. If declared ineligible, a candidate may appeal within 7 days; the committee must issue a decision within 10 days. Candidates running unopposed for a position are elected by acclamation — no vote is held.</div>
-        </div></li>
-        <li class="step"><div class="step-num">4</div><div class="step-body">
-          <div class="step-title">Ballot notice and voting</div>
-          <div class="step-desc">Ballots are distributed at least <strong>15 days before the election closes</strong>. The election must remain open for at least 15 days. Voting may be conducted electronically. All members in good standing are eligible to vote.</div>
-        </div></li>
-        <li class="step"><div class="step-num">5</div><div class="step-body">
-          <div class="step-title">Results and taking office</div>
-          <div class="step-desc">President, VP, Secretary, and Treasurer are elected by <strong>majority of votes cast</strong>. The 3 Members-at-Large positions go to the <strong>top 3 vote-getters</strong>. All elections must conclude by June 30; new officers take office July 1.</div>
-        </div></li>
-      </ol>
-    </div>
-
-    <div class="sit-section">
-      <div class="sit-section-head">Vacancies and Recall</div>
+      <div class="sit-section-head">Load Credits Earned per Activity</div>
       <div class="dl-list">
-        <div class="dl-item"><span class="dl-pill">Presidential vacancy</span><div class="dl-body"><div class="dl-rule">If the President's seat becomes vacant, the Vice President automatically becomes President. A special election is then held for the VP seat.</div><div class="dl-source">AAUP-Utica Bylaws, Article VII</div></div></div>
-        <div class="dl-item"><span class="dl-pill">Recall</span><div class="dl-body"><div class="dl-rule">An officer may be recalled by a petition signed by at least <strong>35% of members in good standing</strong>. A recall vote must be held within 60 days of a valid petition. Recall is not permitted within 180 days of a regularly scheduled election.</div><div class="dl-source">AAUP-Utica Bylaws, Article VII</div></div></div>
+        <div class="dl-item"><span class="dl-pill">Independent study</span><div class="dl-body"><div class="dl-rule"><strong>1 load credit per credit hour</strong></div><div class="dl-source">CBA Article 18.4</div></div></div>
+        <div class="dl-item"><span class="dl-pill">Tutorial</span><div class="dl-body"><div class="dl-rule"><strong>2 load credits per credit hour</strong></div><div class="dl-source">CBA Article 18.4</div></div></div>
+        <div class="dl-item"><span class="dl-pill">Stand-alone internship</span><div class="dl-body"><div class="dl-rule"><strong>1 load credit per credit hour</strong></div><div class="dl-source">CBA Article 18.4</div></div></div>
+        <div class="dl-item"><span class="dl-pill">Graduate/honors thesis director</span><div class="dl-body"><div class="dl-rule"><strong>5 load credits per thesis course</strong> (limited to 2 courses per thesis; does not include continuing registration)</div><div class="dl-source">CBA Article 18.4</div></div></div>
+        <div class="dl-item"><span class="dl-pill">Additional thesis / project reader</span><div class="dl-body"><div class="dl-rule"><strong>4 load credits per thesis</strong></div><div class="dl-source">CBA Article 18.4</div></div></div>
+        <div class="dl-item"><span class="dl-pill">Statistics advisor</span><div class="dl-body"><div class="dl-rule"><strong>4 load credits per thesis</strong></div><div class="dl-source">CBA Article 18.4</div></div></div>
+        <div class="dl-item"><span class="dl-pill">Comprehensive exam — primary advisor</span><div class="dl-body"><div class="dl-rule"><strong>4 load credits per exam</strong> (individual student, written/oral exam as primary advisor)</div><div class="dl-source">CBA Article 18.4</div></div></div>
+        <div class="dl-item"><span class="dl-pill">Comprehensive exam — additional reader</span><div class="dl-body"><div class="dl-rule"><strong>2 load credits per exam</strong> (individual student, written/oral exam as additional reader)</div><div class="dl-source">CBA Article 18.4</div></div></div>
+        <div class="dl-item"><span class="dl-pill">Group exam (multiple faculty)</span><div class="dl-body"><div class="dl-rule"><strong>2 load credits per exam session</strong> per bargaining unit member involved in creating, writing, supervising, correcting, and/or scoring</div><div class="dl-source">CBA Article 18.4</div></div></div>
+      </div>
+    </div>
+
+    <div class="sit-section">
+      <div class="sit-section-head">When Load Credits Turn into a Course Reduction</div>
+      <div class="dl-list">
+        <div class="dl-item"><span class="dl-pill">45 load credits</span><div class="dl-body"><div class="dl-rule">You are entitled to a <strong>3-credit course reduction</strong>, available within 3 semesters (unless you and your School Dean mutually agree to a different arrangement).</div><div class="dl-source">CBA Article 18.4</div></div></div>
+        <div class="dl-item"><span class="dl-pill">15 load credits</span><div class="dl-body"><div class="dl-rule">You may take a <strong>1-credit course reduction</strong> if consistent with departmental needs and scheduling — requires approval of the School Dean.</div><div class="dl-source">CBA Article 18.4</div></div></div>
+      </div>
+    </div>
+
+    <div class="sit-section">
+      <div class="sit-section-head">Special Rules</div>
+      <div class="dl-list">
+        <div class="dl-item"><span class="dl-pill">Student drops without completing</span><div class="dl-body"><div class="dl-rule">If a student registers and remains through the add/drop period but does not complete the thesis, project, or exam, you still receive full credit as if it had been completed. <em>However</em>, if the student completes the work under you in a later semester, no additional credits are earned for that second attempt.</div><div class="dl-source">CBA Article 18.4</div></div></div>
+        <div class="dl-item"><span class="dl-pill">Retirement with uncompensated credits</span><div class="dl-body"><div class="dl-rule">If you retire before using all accumulated load credits, you receive a cash payment: (uncompensated credits ÷ 45) × your 3-credit overload rate. Maximum payout is one 3-credit overload equivalent.</div><div class="dl-source">CBA Article 18.4</div></div></div>
       </div>
     </div>
 
     <div class="sit-footer">
-      <a href="https://aauputica.org/wp-content/uploads/2025/09/aaup-uc-bylaws-adopted-august-19-2025.pdf" class="btn-primary" target="_blank" rel="noopener">Read the Bylaws (Article VII) →</a>
+      <button class="btn-primary" onclick="openKeyRight('kr-workload')">View all workload rights →</button>
     </div>`,
 
   'retirement-eligible': `
