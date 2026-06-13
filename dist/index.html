@@ -2584,6 +2584,7 @@ function showView(name) {
   ['home', 'explore'].forEach(t => {
     document.getElementById('tab-' + t)?.classList.toggle('active', t === name || (name === 'situation' && t === 'home'));
   });
+  if (name === 'home') history.replaceState(null, '', window.location.pathname);
   window.scrollTo(0, 0);
 }
 
