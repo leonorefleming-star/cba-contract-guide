@@ -1,0 +1,37 @@
+# Only dist/index.html and contract-guide.html belong in this repo.
+# Everything else is local working material.
+
+# Mac system files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# PDFs (hosted on WordPress, not served from this repo)
+*.pdf
+
+# Images
+*.jpg
+*.JPG
+*.jpeg
+*.JPEG
+*.png
+*.PNG
+*.gif
+*.GIF
+Design Inspo/
+
+# Word / Office documents
+*.docx
+*.doc
+*.xlsx
+*.pptx
+
+# Backup files
+*.bak
+*.bak*
+
+# Misc working files
+document links.docx
+CBA_Project_Briefing.docx
