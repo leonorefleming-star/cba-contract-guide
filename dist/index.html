@@ -2661,6 +2661,7 @@ function showSituation(id) {
     </div>
     ${detailContent}`;
   showView('situation');
+  history.replaceState(null, '', '#' + id);
 }
 
 function openKeyRight(id) {
@@ -2711,6 +2712,7 @@ function goToSection(id) {
 (function() {
   var exploreSections = ['how-it-works', 'new-moa', 'key-rights', 'documents'];
   var hash = window.location.hash.replace('#', '');
+  if (!hash) return;
   if (exploreSections.indexOf(hash) !== -1) {
     showView('explore');
     setTimeout(function() {
@@ -2720,6 +2722,8 @@ function goToSection(id) {
         window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - hh - 10 });
       }
     }, 100);
+  } else if (situations.find(function(x) { return x.id === hash; })) {
+    showSituation(hash);
   }
 })();
 
