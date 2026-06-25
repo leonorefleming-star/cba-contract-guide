@@ -1225,6 +1225,7 @@ a[href^="mailto:"]:hover { text-decoration: underline; }
 <script>
 const situations = [
   { id:'retrenchment', icon:'🚨', question:'I received a retrenchment notice', hint:'What the university must do before laying anyone off, your options, and the timeline they must follow.', kr:'kr-job-security', articles:'Article 15 · <a href="https://aauputica.org/wp-content/uploads/2026/05/11.-AAUP_Utica-and-Utica-University-Agreement-Signed-10-6-23_OCR.pdf" target="_blank" rel="noopener">MOA — Comprehensive Rights &amp; Economic Package 2023–2025</a> · <a href="https://aauputica.org/wp-content/uploads/2026/06/16.-June-15-26-TA.pdf" target="_blank" rel="noopener">2026 Draft MOA</a>' },
+  { id:'compensation', icon:'💵', question:'I have questions about my salary, healthcare, or benefits', hint:'Current salary minimums, upcoming raises under the 2026 MOA, retirement contributions, and healthcare options.', kr:'kr-compensation', articles:'Article 18 · Article 19 · <a href="https://aauputica.org/wp-content/uploads/2026/06/16.-June-15-26-TA.pdf" target="_blank" rel="noopener">2026 Draft MOA</a>' },
   { id:'overload', icon:'📚', question:'I\'m being asked to take on more work or courses', hint:'Overload vs. load, what\'s actually required, and your right of first refusal before courses go to adjuncts.', kr:'kr-workload', articles:'Article 8.13 · Article 8.18B' },
   { id:'reappointment', icon:'📋', question:'I\'m going through reappointment or tenure review', hint:'Notice deadlines, which review years are automatic under the 2026 MOA, and your appeal rights.', kr:'kr-job-security', articles:'Articles 8.1–8.4 · <a href="https://aauputica.org/wp-content/uploads/2026/05/4.-aaup.uc_.cba_.10.7.18.MOU-signed-9-25-18_OCR.pdf" target="_blank" rel="noopener">MOA — NTE Faculty January Appointments &amp; Non-Renewal Appeal Rights</a> · <a href="https://aauputica.org/wp-content/uploads/2026/05/5.-aaup.uc_.cba_.10.7.18.MOU-signed-9-25-18_OCR.pdf" target="_blank" rel="noopener">MOA — School of Arts &amp; Sciences Division Split</a> · <a href="https://aauputica.org/wp-content/uploads/2026/06/16.-June-15-26-TA.pdf" target="_blank" rel="noopener">2026 Draft MOA</a>' },
   { id:'nte', icon:'📝', question:'I\'m non-tenure eligible (NTE) — how is my contract renewed?', hint:'Term lengths, continuous appointment, notice deadlines, and your appeal rights if non-renewal is recommended.', kr:'kr-job-security', articles:'Articles 8.4–8.5 · <a href="https://aauputica.org/wp-content/uploads/2026/05/4.-aaup.uc_.cba_.10.7.18.MOU-signed-9-25-18_OCR.pdf" target="_blank" rel="noopener">MOA — NTE Faculty January Appointments &amp; Non-Renewal Appeal Rights</a> · <a href="https://aauputica.org/wp-content/uploads/2026/05/5.-aaup.uc_.cba_.10.7.18.MOU-signed-9-25-18_OCR.pdf" target="_blank" rel="noopener">MOA — School of Arts &amp; Sciences Division Split</a>' },
@@ -1233,7 +1234,6 @@ const situations = [
   { id:'discrimination', icon:'🤝', question:'I think I\'m being discriminated against or need an accommodation', hint:'The union has a duty to help you — with discrimination concerns, accommodation requests, disability leave, and accompanying you to HR meetings.', kr:'kr-grievances', articles:'Article 5.1 · NLRA §9(a)' },
   { id:'governance', icon:'🎓', question:'I have a concern about shared governance or academic freedom', hint:'Program changes, curriculum rights, and your free speech and academic freedom protections.', kr:'kr-academic-freedom', articles:'Article 6 · Article 7 · <a href="https://aauputica.org/wp-content/uploads/2026/05/13.-AAUP-Utica-settlement-agreement_signed-2-26-25_OCR.pdf" target="_blank" rel="noopener">MOA — Curriculum Governance Settlement</a>' },
   { id:'senate-aaup', icon:'🤝', question:'What\'s the relationship between AAUP-Utica and the Faculty Senate?', hint:'How the two bodies work together — and how the CBA gives legal force to Faculty Senate\'s academic authority.', kr:'kr-academic-freedom', articles:'Article 7 · <a href="https://aauputica.org/wp-content/uploads/2026/05/13.-AAUP-Utica-settlement-agreement_signed-2-26-25_OCR.pdf" target="_blank" rel="noopener">MOA — Curriculum Governance Settlement</a>' },
-  { id:'compensation', icon:'💵', question:'I have questions about my salary, healthcare, or benefits', hint:'Current salary minimums, upcoming raises under the 2026 MOA, retirement contributions, and healthcare options.', kr:'kr-compensation', articles:'Article 18 · Article 19 · <a href="https://aauputica.org/wp-content/uploads/2026/06/16.-June-15-26-TA.pdf" target="_blank" rel="noopener">2026 Draft MOA</a>' },
   { id:'monitoring', icon:'💻', question:'Someone is monitoring or dropping into my online course', hint:'Observation and monitoring of online courses is restricted under the contract.', kr:'kr-workload', articles:'Article 8.15' },
   { id:'grievable', icon:'❓', question:'I\'m not sure if my concern is grievable', hint:'If something feels wrong, reach out. We can help you figure out whether and how to act — before time limits pass.', kr:'kr-grievances', articles:'Article 16' },
   { id:'sabbatical', icon:'🌿', question:'I want to apply for a sabbatical or mini-sabbatical', hint:'Tenured sabbaticals, mini-sabbaticals for tenure-track and tenured faculty, and the new Transitional Sabbatical in the 2026 Draft MOA.', kr:'kr-leaves', articles:'Article 8.11 · <a href="https://aauputica.org/wp-content/uploads/2026/06/16.-June-15-26-TA.pdf" target="_blank" rel="noopener">2026 Draft MOA §19</a>' },
@@ -1333,9 +1333,9 @@ const sitContent = {
             <div class="step-title">Know the required order of layoff</div>
             <div class="step-desc">Retrenchments must follow a specific sequence — least senior first within each group:
               <ol style="margin:0.5rem 0 0.5rem 1.25rem;line-height:1.85;font-size:0.92rem;">
-                <li><strong>Part-time and non-bargaining-unit employees</strong> — adjuncts and full-time university employees who are not full-time instructors</li>
-                <li><strong>Non-tenured / non-continuous-appointment faculty</strong></li>
-                <li><strong>Tenured / continuous-appointment faculty</strong></li>
+                <li><strong>Non-bargaining-unit members</strong> — "part-time professional employees in the same fields or areas of work as affected bargaining unit members" (i.e., adjuncts as well as employees who may be full-time at the university but are not full-time instructors)</li>
+                <li><strong>Non-tenured or non-continuous-appointment bargaining unit members</strong> (includes non-tenure-eligible faculty and librarians without continuous appointment)</li>
+                <li><strong>Tenured or continuous-appointment bargaining unit members</strong></li>
               </ol>
               The university cannot lay off a more senior colleague while retaining a less senior one, unless the less senior person has the qualifications to teach the remaining courses that the more senior person lacks.
             </div>
@@ -1346,7 +1346,7 @@ const sitContent = {
           </div></li>
           <li class="step"><div class="step-num">4</div><div class="step-body">
             <div class="step-title">Participate in the 60-day voluntary agreement period</div>
-            <div class="step-desc">If attrition is not enough, bargaining unit members have <strong>up to 60 days</strong> to reach a voluntary agreement among themselves about the order of retrenchment. The union can facilitate this process. Only after this period can the university impose involuntary layoffs.</div>
+            <div class="step-desc">If attrition is not enough, bargaining unit members have <strong>up to 60 days</strong> to reach a voluntary agreement among themselves about the order of retrenchment. The union can facilitate this process. Only after this period can the university impose involuntary layoffs, following the required order of layoff in step 2 above.</div>
           </div></li>
           <li class="step"><div class="step-num">5</div><div class="step-body">
             <div class="step-title">Review your options (<a href="https://aauputica.org/wp-content/uploads/2026/06/16.-June-15-26-TA.pdf" target="_blank" rel="noopener">2026 Draft MOA</a>)</div>
@@ -1354,7 +1354,14 @@ const sitContent = {
           </div></li>
           <li class="step"><div class="step-num">6</div><div class="step-body">
             <div class="step-title">Claim your financial clawback</div>
-            <div class="step-desc">If you are retrenched before <strong>May 31, 2029</strong>, you are entitled to be reimbursed — in your final paycheck — for the salary and retirement contribution reductions you absorbed during the 2024–2025 academic year. Make sure the union and HR are accounting for this in your separation paperwork.</div>
+            <div class="step-desc">If you are retrenched before <strong>May 31, 2029</strong>, you are entitled to reimbursement in your final paycheck for reductions you absorbed:
+              <ul style="margin:0.5rem 0 0.5rem 1.25rem;line-height:1.85;font-size:0.92rem;">
+                <li><strong>Salary reductions</strong>: AY 2024–2025 and AY 2025–2026</li>
+                <li><strong>Retirement contribution reductions</strong>: AY 2024–2025 through AY 2026–2027 <em>(AY 2025–26 and 2026–27 portions pending 2026 MOA ratification)</em></li>
+                <li><strong>Tuition benefits</strong> for yourself and your immediate family <em>(pending 2026 MOA ratification)</em></li>
+              </ul>
+              Make sure the union and HR are accounting for all applicable reimbursements in your separation paperwork.
+            </div>
           </div></li>
           <li class="step"><div class="step-num">7</div><div class="step-body">
             <div class="step-title">Protect your recall rights — keep your address current</div>
@@ -2257,11 +2264,6 @@ const sitContent = {
     </div>`,
 
   sabbatical: `
-    <div class="detail-card">
-      <div class="d-icon">🌿</div>
-      <h2 class="d-title">Applying for a Sabbatical or Mini-Sabbatical</h2>
-    </div>
-
     <div class="sit-section">
       <div class="sit-section-head">What this means</div>
       <p class="sit-summary">The CBA provides several forms of scholarly leave designed to support your research, creative work, and professional renewal. The <a href="https://aauputica.org/wp-content/uploads/2026/06/16.-June-15-26-TA.pdf" target="_blank" rel="noopener">2026 Draft MOA</a> also introduces a new <strong>Transitional Sabbatical</strong> for faculty approaching retirement. Each type has its own eligibility requirements and deadlines — missing a deadline can mean waiting another cycle, so plan ahead.</p>
@@ -2382,10 +2384,6 @@ const sitContent = {
     </div>`,
 
   'outside-work': `
-    <div class="detail-card">
-      <h2 class="d-title">Consulting &amp; Outside Professional Work</h2>
-    </div>
-
     <div class="sit-section">
       <div class="sit-section-head">What this means</div>
       <p class="sit-summary">Faculty have the right to engage in outside professional activities — consulting, advising, expert testimony, research partnerships, and similar work. The <strong><a href="https://aauputica.org/wp-content/uploads/2026/06/16.-June-15-26-TA.pdf" target="_blank" rel="noopener">2026 Draft MOA</a> removes the prior requirement to seek advance Provost approval</strong> before undertaking outside paid work. You are free to take on outside professional engagements without notifying or seeking sign-off from the administration.</p>
@@ -2424,10 +2422,6 @@ const sitContent = {
     </div>`,
 
   'edu-benefits': `
-    <div class="detail-card">
-      <h2 class="d-title">Tuition Benefits for You &amp; Your Family</h2>
-    </div>
-
     <div class="sit-section">
       <div class="sit-section-head">What this means</div>
       <p class="sit-summary">The CBA provides a comprehensive package of educational benefits for bargaining unit members, their spouses or domestic partners, and their dependent children. Benefits vary depending on your years of service and whether the study is at Utica or elsewhere. <strong>All benefits continue if you become an Eligible Retiree.</strong></p>
@@ -2472,10 +2466,6 @@ const sitContent = {
     </div>`,
 
   'nontraditional-teaching': `
-    <div class="detail-card">
-      <h2 class="d-title">Non-Traditional Teaching (NTT) &amp; Load Credits</h2>
-    </div>
-
     <div class="sit-section">
       <div class="sit-section-head">What this means</div>
       <p class="sit-summary">Non-traditional teaching (NTT) is work you do outside your regular course load — independent studies, thesis advising, graduate exams, stand-alone internships. Each activity earns you <strong>NTT credits</strong> (also called load credits) under Article 18.4. Once you accumulate enough, you are entitled to a course reduction. This work is compensated as a right, not a favor.</p>
@@ -2620,10 +2610,6 @@ const sitContent = {
     </div>`,
 
   'retirement-eligible': `
-    <div class="detail-card">
-      <h2 class="d-title">Am I Retirement Eligible Under the CBA?</h2>
-    </div>
-
     <div class="sit-section">
       <div class="sit-section-head">Overview</div>
       <p class="sit-summary">The CBA uses the concept of retirement eligibility in several places — for tuition benefit continuation, emeritus status, and the new Option C under the 2026 draft MOA. The criteria differ slightly by context. Here is what each provision requires.</p>
